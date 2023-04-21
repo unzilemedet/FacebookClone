@@ -11,6 +11,8 @@ import com.unzile.repository.entity.UserProfile;
 import com.unzile.utility.JwtTokenManager;
 import com.unzile.utility.ServiceManager;
 import com.unzile.utility.TokenCreator;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -49,8 +51,20 @@ public class UserProfileService extends ServiceManager<UserProfile,String> {
             update(profile);
         }
     }
+    @Cacheable(value = "getnametoupper")
+    public String getNameToUpper(String name){
+        try{
+            Thread.sleep(3000);
+        }catch (Exception ex){
 
+        }
+        return name.toUpperCase();
+    }
 
+    @CacheEvict(value = "getnametoupper",allEntries = true)
+    public void clearCacheToUpper(){
+        System.out.println("Tüm cache i temizledim");
+    }
 
 }
 
