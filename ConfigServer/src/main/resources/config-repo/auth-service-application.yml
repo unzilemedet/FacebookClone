@@ -4,20 +4,20 @@ server:
 spring:
   zipkin:
     enable: true
-    base-url: http://localhost:9411
+    base-url: http://10.44.0.18:9411
     service:
       name: auth-service
 
   rabbitmq:
-    host: localhost
+    host: 10.44.0.17
     port: 5672
-    username: java7
-    password: root
+    username: BilgeAdmin
+    password: BilgeSifre
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://34.155.46.29:5432/FacebookAuthDB
+    url: jdbc:postgresql://10.44.0.15:5432/FacebookAuthDB
     username: postgres
-    password: U.m123456
+    password: BilgeAdminSifresi
   jpa:
     hibernate:
       ddl-auto: update
